@@ -1,0 +1,151 @@
+<style>
+    .order-box {
+        width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px #ccc;
+        font-family: Arial;
+    }
+
+    .order-box h2 {
+        text-align: center;
+        color: #e63946;
+        margin-bottom: 25px;
+    }
+
+    .product {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .product img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+
+    .product-info {
+        flex: 1;
+    }
+
+    .product-info b {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .price {
+        color: #e63946;
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #ddd;
+        border-radius: 7px;
+    }
+
+    textarea {
+        height: 80px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 13px;
+        background: #e63946;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #c92f3b;
+    }
+</style>
+
+
+<div class="order-box">
+
+    <h2>🛒 ĐẶT HÀNG / LIÊN HỆ</h2>
+
+    <div class="product">
+        <img src="images/noi-chien.png">
+        <div class="product-info">
+            <b>Nồi Chiên Không Dầu 5L</b>
+            <span class="price">1.299.000đ</span>
+        </div>
+    </div>
+
+    <div class="product">
+        <img src="images/robot.png">
+        <div class="product-info">
+            <b>Robot Hút Bụi Thông Minh</b>
+            <span class="price">2.499.000đ</span>
+        </div>
+    </div>
+
+    <div class="product">
+        <img src="images/may-xay.png">
+        <div class="product-info">
+            <b>Máy Xay Sinh Tố Đa Năng</b>
+            <span class="price">699.000đ</span>
+        </div>
+    </div>
+
+    <div class="product">
+        <img src="images/am-sieu-toc.png">
+        <div class="product-info">
+            <b>Ấm Siêu Tốc Inox 1.8L</b>
+            <span class="price">399.000đ</span>
+        </div>
+    </div>
+
+
+    <form>
+
+        <label>Họ và tên</label>
+        <input type="text" placeholder="Nhập họ và tên" required>
+
+        <label>Số điện thoại</label>
+        <input type="tel" placeholder="Nhập số điện thoại" required>
+
+        <label>Chọn sản phẩm</label>
+        <select required>
+            <option>Nồi Chiên Không Dầu 5L - 1.299.000đ</option>
+            <option>Robot Hút Bụi Thông Minh - 2.499.000đ</option>
+            <option>Máy Xay Sinh Tố Đa Năng - 699.000đ</option>
+            <option>Ấm Siêu Tốc Inox 1.8L - 399.000đ</option>
+        </select>
+
+        <label>Số lượng</label>
+        <input type="number" value="1" min="1">
+
+        <label>Địa chỉ nhận hàng</label>
+        <input type="text" placeholder="Nhập địa chỉ">
+
+        <label>Ghi chú</label>
+        <textarea placeholder="Nhập nội dung cần liên hệ..."></textarea>
+
+        <button type="submit">GỬI ĐƠN HÀNG</button>
+
+    </form>
+
+</div>
