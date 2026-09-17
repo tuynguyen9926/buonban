@@ -1,146 +1,161 @@
-```html
-<center>
-    <table width="700" cellpadding="15" cellspacing="0" border="0">
+<style>
+  .order-box {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #ccc;
+    font-family: Arial, sans-serif;
+  }
 
-        <tr bgcolor="#e63946">
-            <td align="center">
-                <font color="white" size="6">
-                    <b>🛒 ĐẶT HÀNG / LIÊN HỆ</b>
-                </font>
-                <br>
-                <font color="white">
-                    Đặt hàng nhanh chóng và tiện lợi
-                </font>
-            </td>
-        </tr>
+  .order-box h2 {
+    text-align: center;
+    color: #e63946;
+  }
 
-        <tr>
-            <td>
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 
-                <h2 align="center">🛍️ SẢN PHẨM</h2>
+  .product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
 
-                <table width="100%" cellpadding="12" border="1">
+  .product img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
 
-                    <tr>
-                        <td width="25%" align="center">
-                            <img src="images/noi-chien.png" width="100">
-                        </td>
-                        <td>
-                            <b>Nồi Chiên Không Dầu 5L</b>
-                            <br><br>
-                            <font color="#e63946" size="4">
-                                <b>1.299.000đ</b>
-                            </font>
-                        </td>
-                    </tr>
+  .product-info {
+    flex: 1;
+  }
 
-                    <tr>
-                        <td align="center">
-                            <img src="images/robot.png" width="100">
-                        </td>
-                        <td>
-                            <b>Robot Hút Bụi Thông Minh</b>
-                            <br><br>
-                            <font color="#e63946" size="4">
-                                <b>2.499.000đ</b>
-                            </font>
-                        </td>
-                    </tr>
+  .product-info b {
+    display: block;
+    margin-bottom: 6px;
+  }
 
-                    <tr>
-                        <td align="center">
-                            <img src="images/may-xay.png" width="100">
-                        </td>
-                        <td>
-                            <b>Máy Xay Sinh Tố Đa Năng</b>
-                            <br><br>
-                            <font color="#e63946" size="4">
-                                <b>699.000đ</b>
-                            </font>
-                        </td>
-                    </tr>
+  .price {
+    color: #e63946;
+    font-weight: bold;
+  }
 
-                    <tr>
-                        <td align="center">
-                            <img src="images/am-sieu-toc.png" width="100">
-                        </td>
-                        <td>
-                            <b>Ấm Siêu Tốc Inox 1.8L</b>
-                            <br><br>
-                            <font color="#e63946" size="4">
-                                <b>399.000đ</b>
-                            </font>
-                        </td>
-                    </tr>
+  label {
+    display: block;
+    margin: 15px 0 6px;
+    font-weight: bold;
+  }
 
-                </table>
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    box-sizing: border-box;
+  }
 
-                <br>
+  textarea {
+    height: 70px;
+  }
 
-                <fieldset>
-                    <legend>
-                        <b>📋 THÔNG TIN ĐẶT HÀNG</b>
-                    </legend>
+  button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    background: #e63946;
+    color: white;
+    border: 0;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-                    <p>
-                        <b>👤 Họ và tên</b><br>
-                        <input type="text" size="70"
-                               placeholder="Nhập họ và tên" required>
-                    </p>
+  button:hover {
+    background: #c92f3b;
+  }
 
-                    <p>
-                        <b>📞 Số điện thoại</b><br>
-                        <input type="tel" size="70"
-                               placeholder="Nhập số điện thoại" required>
-                    </p>
+  @media (max-width: 600px) {
+    .products {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
-                    <p>
-                        <b>🛍️ Chọn sản phẩm</b><br>
-                        <select>
-                            <option>-- Chọn sản phẩm --</option>
-                            <option>Nồi Chiên Không Dầu 5L - 1.299.000đ</option>
-                            <option>Robot Hút Bụi Thông Minh - 2.499.000đ</option>
-                            <option>Máy Xay Sinh Tố Đa Năng - 699.000đ</option>
-                            <option>Ấm Siêu Tốc Inox 1.8L - 399.000đ</option>
-                        </select>
-                    </p>
+<div class="order-box">
+  <h2>🛒 ĐẶT HÀNG / LIÊN HỆ</h2>
 
-                    <p>
-                        <b>🔢 Số lượng</b><br>
-                        <input type="number" value="1" min="1">
-                    </p>
+  ```
+  <div class="products">
+    <div class="product">
+      <img src="images/noi-chien.png" alt="Nồi chiên không dầu" />
+      <div class="product-info">
+        <b>Nồi Chiên Không Dầu 5L</b>
+        <span class="price">1.299.000đ</span>
+      </div>
+    </div>
 
-                    <p>
-                        <b>📍 Địa chỉ nhận hàng</b><br>
-                        <input type="text" size="70"
-                               placeholder="Nhập địa chỉ nhận hàng">
-                    </p>
+    <div class="product">
+      <img src="images/robot.png" alt="Robot hút bụi" />
+      <div class="product-info">
+        <b>Robot Hút Bụi Thông Minh</b>
+        <span class="price">2.499.000đ</span>
+      </div>
+    </div>
 
-                    <p>
-                        <b>📝 Ghi chú</b><br>
-                        <textarea rows="4" cols="68"
-                                  placeholder="Nhập nội dung cần liên hệ..."></textarea>
-                    </p>
+    <div class="product">
+      <img src="images/may-xay.png" alt="Máy xay sinh tố" />
+      <div class="product-info">
+        <b>Máy Xay Sinh Tố Đa Năng</b>
+        <span class="price">699.000đ</span>
+      </div>
+    </div>
 
-                    <p align="center">
-                        <button type="submit">
-                            🛒 GỬI ĐƠN HÀNG
-                        </button>
-                    </p>
+    <div class="product">
+      <img src="images/am-sieu-toc.png" alt="Ấm siêu tốc" />
+      <div class="product-info">
+        <b>Ấm Siêu Tốc Inox 1.8L</b>
+        <span class="price">399.000đ</span>
+      </div>
+    </div>
+  </div>
 
-                </fieldset>
+  <form>
+    <label>Họ và tên</label>
+    <input type="text" placeholder="Nhập họ và tên" required />
 
-            </td>
-        </tr>
+    <label>Số điện thoại</label>
+    <input type="tel" placeholder="Nhập số điện thoại" required />
 
-        <tr bgcolor="#f5f5f5">
-            <td align="center">
-                <font color="#666">
-                    🔒 Thông tin khách hàng được bảo mật
-                </font>
-            </td>
-        </tr>
+    <label>Chọn sản phẩm</label>
+    <select required>
+      <option value="">-- Chọn sản phẩm --</option>
+      <option>Nồi Chiên Không Dầu 5L - 1.299.000đ</option>
+      <option>Robot Hút Bụi Thông Minh - 2.499.000đ</option>
+      <option>Máy Xay Sinh Tố Đa Năng - 699.000đ</option>
+      <option>Ấm Siêu Tốc Inox 1.8L - 399.000đ</option>
+    </select>
 
-    </table>
-</center>
-```
+    <label>Số lượng</label>
+    <input type="number" value="1" min="1" />
+
+    <label>Địa chỉ</label>
+    <input type="text" placeholder="Nhập địa chỉ nhận hàng" />
+
+    <label>Ghi chú</label>
+    <textarea placeholder="Nhập ghi chú..."></textarea>
+
+    <button type="submit">🛒 GỬI ĐƠN HÀNG</button>
+  </form>
+  ```
+</div>
