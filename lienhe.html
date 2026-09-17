@@ -1,34 +1,89 @@
 <style>
-    .order-box {
-        width: 600px;
-        margin: 40px auto;
-        padding: 30px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px #ccc;
-        font-family: Arial;
+    * {
+        box-sizing: border-box;
     }
 
-    .order-box h2 {
+    body {
+        margin: 0;
+        padding: 40px 20px;
+        background: #f5f6fa;
+        font-family: Arial, sans-serif;
+    }
+
+    .order-container {
+        max-width: 900px;
+        margin: auto;
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    /* HEADER */
+    .order-header {
+        background: linear-gradient(135deg, #e63946, #ff6b6b);
+        color: white;
         text-align: center;
-        color: #e63946;
-        margin-bottom: 25px;
+        padding: 30px 20px;
+    }
+
+    .order-header h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+    }
+
+    .order-header p {
+        margin: 0;
+        font-size: 15px;
+        opacity: 0.9;
+    }
+
+    /* CONTENT */
+    .order-content {
+        padding: 30px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 18px;
+        color: #333;
+        border-left: 5px solid #e63946;
+        padding-left: 12px;
+    }
+
+    /* PRODUCTS */
+    .product-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
     }
 
     .product {
         display: flex;
         align-items: center;
         gap: 15px;
-        padding: 12px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
+        padding: 15px;
+        border: 1px solid #e5e5e5;
+        border-radius: 14px;
+        background: #fff;
+        transition: 0.3s;
+    }
+
+    .product:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 18px rgba(0, 0, 0, 0.1);
+        border-color: #e63946;
     }
 
     .product img {
-        width: 80px;
-        height: 80px;
+        width: 85px;
+        height: 85px;
         object-fit: contain;
+        background: #f8f8f8;
+        border-radius: 10px;
+        padding: 5px;
     }
 
     .product-info {
@@ -37,115 +92,311 @@
 
     .product-info b {
         display: block;
+        color: #333;
+        font-size: 16px;
         margin-bottom: 8px;
+        line-height: 1.4;
     }
 
     .price {
         color: #e63946;
+        font-size: 17px;
         font-weight: bold;
+    }
+
+    /* FORM */
+    .form-section {
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
     }
 
     label {
         display: block;
-        margin-top: 15px;
-        margin-bottom: 6px;
+        margin-bottom: 7px;
         font-weight: bold;
+        color: #333;
+        font-size: 14px;
     }
 
-    input, textarea, select {
+    input,
+    textarea,
+    select {
         width: 100%;
-        padding: 11px;
-        border: 1px solid #ddd;
-        border-radius: 7px;
+        padding: 12px 14px;
+        border: 1px solid #dcdcdc;
+        border-radius: 9px;
+        font-size: 14px;
+        outline: none;
+        transition: 0.3s;
+        font-family: Arial, sans-serif;
+        background: white;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #e63946;
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
     }
 
     textarea {
-        height: 80px;
+        min-height: 100px;
+        resize: vertical;
     }
 
-    button {
+    /* BUTTON */
+    .submit-btn {
         width: 100%;
-        margin-top: 20px;
-        padding: 13px;
-        background: #e63946;
-        color: white;
+        padding: 15px;
         border: none;
-        border-radius: 7px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #e63946, #ff4d5a);
+        color: white;
         font-size: 16px;
         font-weight: bold;
         cursor: pointer;
+        transition: 0.3s;
+        margin-top: 5px;
     }
 
-    button:hover {
-        background: #c92f3b;
+    .submit-btn:hover {
+        background: linear-gradient(135deg, #c92f3b, #e63946);
+        transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(230, 57, 70, 0.3);
+    }
+
+    /* NOTE */
+    .note {
+        margin-top: 18px;
+        padding: 13px 15px;
+        background: #fff5f5;
+        border-radius: 9px;
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+
+        body {
+            padding: 20px 10px;
+        }
+
+        .order-content {
+            padding: 20px;
+        }
+
+        .product-list {
+            grid-template-columns: 1fr;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .order-header h1 {
+            font-size: 23px;
+        }
     }
 </style>
 
 
-<div class="order-box">
+<div class="order-container">
 
-    <h2>🛒 ĐẶT HÀNG / LIÊN HỆ</h2>
-
-    <div class="product">
-        <img src="images/noi-chien.png">
-        <div class="product-info">
-            <b>Nồi Chiên Không Dầu 5L</b>
-            <span class="price">1.299.000đ</span>
-        </div>
-    </div>
-
-    <div class="product">
-        <img src="images/robot.png">
-        <div class="product-info">
-            <b>Robot Hút Bụi Thông Minh</b>
-            <span class="price">2.499.000đ</span>
-        </div>
-    </div>
-
-    <div class="product">
-        <img src="images/may-xay.png">
-        <div class="product-info">
-            <b>Máy Xay Sinh Tố Đa Năng</b>
-            <span class="price">699.000đ</span>
-        </div>
-    </div>
-
-    <div class="product">
-        <img src="images/am-sieu-toc.png">
-        <div class="product-info">
-            <b>Ấm Siêu Tốc Inox 1.8L</b>
-            <span class="price">399.000đ</span>
-        </div>
+    <!-- HEADER -->
+    <div class="order-header">
+        <h1>🛒 ĐẶT HÀNG / LIÊN HỆ</h1>
+        <p>Điền thông tin bên dưới để đặt sản phẩm</p>
     </div>
 
 
-    <form>
+    <div class="order-content">
 
-        <label>Họ và tên</label>
-        <input type="text" placeholder="Nhập họ và tên" required>
+        <!-- SẢN PHẨM -->
+        <div class="section-title">
+            🛍️ Sản phẩm của chúng tôi
+        </div>
 
-        <label>Số điện thoại</label>
-        <input type="tel" placeholder="Nhập số điện thoại" required>
+        <div class="product-list">
 
-        <label>Chọn sản phẩm</label>
-        <select required>
-            <option>Nồi Chiên Không Dầu 5L - 1.299.000đ</option>
-            <option>Robot Hút Bụi Thông Minh - 2.499.000đ</option>
-            <option>Máy Xay Sinh Tố Đa Năng - 699.000đ</option>
-            <option>Ấm Siêu Tốc Inox 1.8L - 399.000đ</option>
-        </select>
+            <!-- SẢN PHẨM 1 -->
+            <div class="product">
+                <img src="images/noi-chien.png" alt="Nồi Chiên Không Dầu 5L">
 
-        <label>Số lượng</label>
-        <input type="number" value="1" min="1">
+                <div class="product-info">
+                    <b>Nồi Chiên Không Dầu 5L</b>
+                    <span class="price">1.299.000đ</span>
+                </div>
+            </div>
 
-        <label>Địa chỉ nhận hàng</label>
-        <input type="text" placeholder="Nhập địa chỉ">
 
-        <label>Ghi chú</label>
-        <textarea placeholder="Nhập nội dung cần liên hệ..."></textarea>
+            <!-- SẢN PHẨM 2 -->
+            <div class="product">
+                <img src="images/robot.png" alt="Robot Hút Bụi Thông Minh">
 
-        <button type="submit">GỬI ĐƠN HÀNG</button>
+                <div class="product-info">
+                    <b>Robot Hút Bụi Thông Minh</b>
+                    <span class="price">2.499.000đ</span>
+                </div>
+            </div>
 
-    </form>
+
+            <!-- SẢN PHẨM 3 -->
+            <div class="product">
+                <img src="images/may-xay.png" alt="Máy Xay Sinh Tố Đa Năng">
+
+                <div class="product-info">
+                    <b>Máy Xay Sinh Tố Đa Năng</b>
+                    <span class="price">699.000đ</span>
+                </div>
+            </div>
+
+
+            <!-- SẢN PHẨM 4 -->
+            <div class="product">
+                <img src="images/am-sieu-toc.png" alt="Ấm Siêu Tốc Inox 1.8L">
+
+                <div class="product-info">
+                    <b>Ấm Siêu Tốc Inox 1.8L</b>
+                    <span class="price">399.000đ</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+        <div class="form-section">
+
+            <div class="section-title">
+                📋 Thông tin đặt hàng
+            </div>
+
+            <form>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>👤 Họ và tên</label>
+                        <input
+                            type="text"
+                            placeholder="Nhập họ và tên"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>📞 Số điện thoại</label>
+                        <input
+                            type="tel"
+                            placeholder="Nhập số điện thoại"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label>🛍️ Chọn sản phẩm</label>
+
+                    <select required>
+
+                        <option value="">
+                            -- Chọn sản phẩm --
+                        </option>
+
+                        <option>
+                            Nồi Chiên Không Dầu 5L - 1.299.000đ
+                        </option>
+
+                        <option>
+                            Robot Hút Bụi Thông Minh - 2.499.000đ
+                        </option>
+
+                        <option>
+                            Máy Xay Sinh Tố Đa Năng - 699.000đ
+                        </option>
+
+                        <option>
+                            Ấm Siêu Tốc Inox 1.8L - 399.000đ
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>🔢 Số lượng</label>
+
+                        <input
+                            type="number"
+                            value="1"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>📍 Địa chỉ nhận hàng</label>
+
+                        <input
+                            type="text"
+                            placeholder="Nhập địa chỉ nhận hàng"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>📝 Ghi chú</label>
+
+                    <textarea
+                        placeholder="Nhập nội dung cần liên hệ..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    🛒 GỬI ĐƠN HÀNG
+                </button>
+
+
+                <div class="note">
+                    🔒 Thông tin của bạn sẽ được bảo mật và chỉ sử dụng
+                    cho mục đích xử lý đơn hàng.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </div>
